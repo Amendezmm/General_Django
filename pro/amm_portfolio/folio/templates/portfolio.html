@@ -8,7 +8,26 @@
 </head>
 <body>
     {% block content %}
-        PORTFOLIO
+    <div class="container text-left" style="margin:20px;">
+        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-left: 100px;">Portfolio</h1>
+    </div>
+    <div class="container text-center">
+        
+      {% for folio in listaportfolio %}
+        <div class="row" style="float: left;margin-right: 1px">
+            <div class="col" >           
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.pixabay.com/photo/2023/12/28/19/14/boy-8474750_640.jpg" class="card-img-top" alt="..." 
+                    height="300">
+                    <div class="card-body">
+                      <h5 class="card-title">{{folio.name}}</h5>
+                      <p class="card-text">{{folio.description}}</p>
+                      <a href="#" class="btn btn-primary">{{folio.url}}</a>
+                    </div>
+                </div>    
+              </div>
+        </div>
+      {% endfor %}
     {% endblock %}
 </body>
 </html>

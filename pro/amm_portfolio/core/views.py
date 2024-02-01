@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from folio.models import dbportfolio
+
 # Create your views here.
 
 
@@ -13,9 +15,11 @@ def master(request):
     return HttpResponse(template.render(context, request))
 
 def home(request):
+
+    listaportfolio = dbportfolio.objects.values()
     template = loader.get_template("home.html")
     context = {
-        "valor" : "valor"
+        "listaportfolio" : listaportfolio
     }
 
     return HttpResponse(template.render(context, request))
